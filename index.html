@@ -15,7 +15,9 @@
         <div class="book-list"></div>
       </div>
     </main>
-    <div class="add-book">
+    <dialog>
+      <div ><button class="close-btn">x</button></div>
+      <h3>Add Book</h3>
       <form id="book-form">
         <label for="title">Book Title: </label>
         <input type="text" class="book-info" id="title" name="title" />
@@ -27,7 +29,8 @@
         <input type="number" class="book-info" id="pages" name="pages" />
         <button type="submit">Add Book</button>
       </form>
-    </div>
+    </dialog>
+    <button type="button" class="add">Add Book</button>
     <script src="script.js"></script>
   </body>
 </html>
