@@ -12,21 +12,30 @@
     <main>
       <div class="Library">
         <h2>Book List</h2>
-        <div class="book-list"></div>
+        <div class="books"></div>
       </div>
     </main>
     <dialog>
-      <div ><button class="close-btn">x</button></div>
+      <div>
+        <button value="cancel" formmethod="dialog" class="close-btn">x</button>
+      </div>
       <h3>Add Book</h3>
       <form id="book-form">
         <label for="title">Book Title: </label>
-        <input type="text" class="book-info" id="title" name="title" />
+        <input type="text" class="book-info" id="title" name="title" required/>
 
         <label for="author">Author Name: </label>
-        <input type="text" class="book-info" id="author" name="author" />
+        <input type="text" class="book-info" id="author" name="author" required/>
 
-        <label for="pages">Pages: </label>
-        <input type="number" class="book-info" id="pages" name="pages" />
+        <label for="pages" >Pages: </label>
+        <input type="number" class="book-info" id="pages" name="pages" required/>
+
+        <select name="status" id="status" required>
+          <option value="not-read">Not Read</option>
+          <option value="reading">Reading</option>
+          <option value="finished">Finished</option>
+        </select>
+
         <button type="submit">Add Book</button>
       </form>
     </dialog>
