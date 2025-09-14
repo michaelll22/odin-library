@@ -7,7 +7,7 @@ bookForm.addEventListener("submit", (e) => {
   const authorInput = document.querySelector("#author");
   const pagesInput = document.querySelector("#pages");
 
-  let book = new Book(title.value, author.value, pages.value);
+  let book = new Book(titleInput.value, authorInput.value, pagesInput.value);
   addBookToLibrary(book);
   console.table(myLibrary);
 });
