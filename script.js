@@ -6,44 +6,64 @@ const dialog = document.querySelector("dialog");
 
 let myLibrary = [];
 
-function removeBook(bookElement, bookObj) {
-  bookList.removeChild(bookElement);
-  myLibrary = myLibrary.filter((b) => b !== bookObj);
-}
-
-function Book(title, author, pages) {
+function Book(title, author, pages, status) {
+  this.uid = crypto.randomUUID();
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.status = status;
 }
 
-function addBookToLibrary(book) {
-  myLibrary.push(book);
+function addBookToLibrary() {
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const status = document.querySelector("#status").value;
 
-  const bookInfo = document.createElement("li");
-  const bookRemove = document.createElement("button");
+  let newBook = new Book(title, author, pages, status);
 
-  bookInfo.textContent = `${book.title} by ${book.author}`;
-  bookRemove.textContent = "Remove";
+  myLibrary.push(newBook);
+  addBookCard(newBook);
+}
 
-  bookList.appendChild(bookInfo);
-  bookInfo.appendChild(bookRemove);
+function addBookCard(book) {
+  const bookCard = document.createElement("div");
+  bookCard.classList.add("bookCard");
 
-  bookRemove.addEventListener("click", () => {
-    removeBook(bookInfo, book);
-  });
+  const cardTitle = document.createElement("h4");
+  const cardAuthor = document.createElement("p");
+  const cardPages = document.createElement("p");
+  const cardStatus = document.createElement("p");
+
+  const cardRemove = document.createElement("button");
+  cardRemove.textContent = "Remove";
+
+  cardTitle.textContent = book.title ? `Title: ${book.title}` : "Unknown Title";
+  cardAuthor.textContent = `Author: ${book.author}`;
+  cardPages.textContent = `Pages: ${book.pages}`
+    ? `${book.pages} pages`
+    : "Page count missing";
+  cardStatus.textContent = `Status: ${book.status}`;
+
+  bookCard.appendChild(cardTitle);
+  bookCard.appendChild(cardAuthor);
+  bookCard.appendChild(cardPages);
+  bookCard.appendChild(cardStatus);
+  bookCard.appendChild(cardRemove);
+
+  bookList.appendChild(bookCard);
+
+  cardRemove.addEventListener("click", () => removeBook(bookCard, book.uid));
+}
+
+function removeBook(bookElement, bookId) {
+  bookElement.remove();
+  myLibrary = myLibrary.filter((book) => book.uid !== bookId);
 }
 
 bookForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  const titleInput = document.querySelector("#title").value;
-  const authorInput = document.querySelector("#author").value;
-  const pagesInput = document.querySelector("#pages").value;
-
-  let book = new Book(titleInput, authorInput, pagesInput);
-  addBookToLibrary(book);
-  console.table(myLibrary);
+  addBookToLibrary();
   dialog.close();
   bookForm.reset();
 });
