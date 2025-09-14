@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odin Library</title>
+  </head>
+  <body>
+    <header>
+      <h1>Library</h1>
+    </header>
+    <main>
+      <div class="Library">
+        <h2>Book List</h2>
+        <div class="book-list"></div>
+      </div>
+    </main>
+    <div class="add-book">
+      <form id="book-form">
+        <label for="title">Book Title: </label>
+        <input type="text" class="book-info" id="title" name="title" />
+
+        <label for="author">Author Name: </label>
+        <input type="text" class="book-info" id="author" name="author" />
+
+        <label for="pages">Pages: </label>
+        <input type="number" class="book-info" id="pages" name="pages" />
+        <button type="submit">Add Book</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
