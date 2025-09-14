@@ -40,8 +40,8 @@ function addBookCard(book) {
 
   cardTitle.textContent = book.title ? `Title: ${book.title}` : "Unknown Title";
   cardAuthor.textContent = `Author: ${book.author}`;
-  cardPages.textContent = `Pages: ${book.pages}`
-    ? `${book.pages} pages`
+  cardPages.textContent = book.pages
+    ? `Pages: ${book.pages}`
     : "Page count missing";
   cardStatus.textContent = `Status: ${book.status}`;
 

@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Odin Library</title>
   </head>
   <body>
     <header>
       <h1>Library</h1>
+      <button type="button" class="add">Add Book</button>
     </header>
     <main>
-      <div class="Library">
+      <div class="library">
         <h2>Book List</h2>
         <div class="books"></div>
       </div>
@@ -22,13 +24,25 @@
       <h3>Add Book</h3>
       <form id="book-form">
         <label for="title">Book Title: </label>
-        <input type="text" class="book-info" id="title" name="title" required/>
+        <input type="text" class="book-info" id="title" name="title" required />
 
         <label for="author">Author Name: </label>
-        <input type="text" class="book-info" id="author" name="author" required/>
+        <input
+          type="text"
+          class="book-info"
+          id="author"
+          name="author"
+          required
+        />
 
-        <label for="pages" >Pages: </label>
-        <input type="number" class="book-info" id="pages" name="pages" required/>
+        <label for="pages">Pages: </label>
+        <input
+          type="number"
+          class="book-info"
+          id="pages"
+          name="pages"
+          required
+        />
 
         <select name="status" id="status" required>
           <option value="Not Reading">Not Read</option>
@@ -39,7 +53,6 @@
         <button type="submit">Add Book</button>
       </form>
     </dialog>
-    <button type="button" class="add">Add Book</button>
     <script src="script.js"></script>
   </body>
 </html>
